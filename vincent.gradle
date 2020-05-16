@@ -1,0 +1,18 @@
+ext {
+    android = [
+            applicationId    : "com.vincent.music_voice",
+            compileSdkVersion: 28,
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0",
+            multiDexEnabled  : true
+    ]
+    depsVersion = [
+            appcompat: '1.0.2',
+    ]
+    depsLibs = [
+            appcompat: "androidx.appcompat:appcompat:${depsVersion.appcompat}",
+
+    ]
+}

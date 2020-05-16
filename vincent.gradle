@@ -10,9 +10,11 @@ ext {
     ]
     depsVersion = [
             appcompat: '1.0.2',
+            magicindicator : '1.5.0',
     ]
     depsLibs = [
             appcompat: "androidx.appcompat:appcompat:${depsVersion.appcompat}",
+            magicindicator : "com.github.hackware1993:MagicIndicator:${depsVersion.magicindicator}",
 
     ]
 }

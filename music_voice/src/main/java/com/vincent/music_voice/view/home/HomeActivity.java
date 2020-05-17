@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.vincent.lib_common_ui.base.BaseActivity;
 import com.vincent.music_voice.R;
 import com.vincent.music_voice.model.CHANNEL;
+import com.vincent.music_voice.view.home.adapter.HomePagerAdapter;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -21,13 +23,12 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.Simple
 
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 /**
  * 首页Activity
  */
-public class HomeActivity extends FragmentActivity implements View.OnClickListener {
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     private static final CHANNEL[] CHANNELS =
             new CHANNEL[]{CHANNEL.MY, CHANNEL.DISCORY, CHANNEL.FRIEND};
@@ -39,7 +40,7 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
     private View mToggleView;
     private View mSearchView;
     private ViewPager mViewPager;
-    //private HomePagerAdapter mAdapter;
+    private HomePagerAdapter mAdapter;
     private View mDrawerQrcodeView;
     private View mDrawerShareView;
     private View unLogginLayout;
@@ -61,7 +62,8 @@ public class HomeActivity extends FragmentActivity implements View.OnClickListen
         mSearchView.setOnClickListener(this);
 
         mViewPager = findViewById(R.id.view_pager);
-
+        mAdapter = new HomePagerAdapter(getSupportFragmentManager(), CHANNELS);
+        mViewPager.setAdapter(mAdapter);
         initMagicIndicator();
     }
 
